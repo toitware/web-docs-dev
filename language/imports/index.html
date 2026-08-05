@@ -52,12 +52,10 @@ As discussed, this is repetitive, so instead this can be shortened to:
 <code>import .sub</code>.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">The same mechanism applies to SDK or package imports. If the resolution
 of an import finds a folder, Toit tries to find a file with the same
 name as the last segment instead.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Say, we want to use the <a class="MuiTypography-root MuiTypography-body1 MuiLink-root MuiLink-underlineHover css-16lec7v" target="_blank" rel="noreferrer" href="https://github.com/toitware/toit-morse">morse package</a>.
-When installing this package
-with <code>jag pkg install github.com/toitware/toit-morse</code>,
-(or with <code>toit.pkg ...</code>) the package manager
-downloads the sources and adds a mapping from the package&#x27;s name <code>morse</code> to
-the location it downloaded the sources. Specifically, the mapping points to
-the <code>src</code> folder of the package.</p><div type="info" class="css-1tunoq7"><div class="css-70qvj9"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="css-6ampz4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 56C145.72 56 56 145.72 56 256s89.72 200 200 200 200-89.72 200-200S366.28 56 256 56zm0 82a26 26 0 11-26 26 26 26 0 0126-26zm48 226h-88a16 16 0 010-32h28v-88h-16a16 16 0 010-32h32a16 16 0 0116 16v104h28a16 16 0 010 32z"></path></svg><div class="css-2drvo4">If you are using Jaguar, you should use `jag pkg` (with a space) to install packages.  If you are using the standalone open source Toit SDK, you should use `toit.pkg` (with a dot).</div></div></div><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Here is the file hierarchy of the <code>morse</code> package:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">.
+When installing this package with the package manager—for example, with
+<code>jag pkg install github.com/toitware/toit-morse</code>—it downloads the sources and
+adds a mapping from the package&#x27;s name <code>morse</code> to the location of the downloaded
+sources. Specifically, the mapping points to the <code>src</code> folder of the package.</p><div type="info" class="css-1tunoq7"><div class="css-70qvj9"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="css-6ampz4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 56C145.72 56 56 145.72 56 256s89.72 200 200 200 200-89.72 200-200S366.28 56 256 56zm0 82a26 26 0 11-26 26 26 26 0 0126-26zm48 226h-88a16 16 0 010-32h28v-88h-16a16 16 0 010-32h32a16 16 0 0116 16v104h28a16 16 0 010 32z"></path></svg><div class="css-2drvo4">If you are using Jaguar, you should use `jag pkg` to install packages. If you are using the standalone open source Toit SDK, you should use `toit pkg`.</div></div></div><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Here is the file hierarchy of the <code>morse</code> package:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">.
 [...]
 ├── src
 │   └── morse.toit
