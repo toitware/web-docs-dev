@@ -8,15 +8,13 @@ a look at the <a href="/tutorials/hardware/pwm_led">Fading LED tutorial</a> firs
 determines the angle of the servo motor. The frequency of the PWM signal is
 usually 50Hz, but the actual frequency depends on the motor.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Similarly to the <a href="/tutorials/hardware/pwm/led">fading LED example</a> we just need to create a
 PWM generator and then hook pin 12 to it. This time the frequency of the
-wave should be 50Hz.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Write the following <code>servo.toit</code> program and run or watch it:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import gpio
-import gpio.pwm
+wave should be 50Hz.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Write the following <code>servo.toit</code> program and run or watch it:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import gpio.pwm
 
 main:
-  servo := gpio.Pin 12
   generator := pwm.Pwm --frequency=50
 
   // Start with the half-way angle.
-  channel := generator.start servo --duty-factor=0.075
+  channel := generator.start 12 --duty-factor=0.075
   sleep --ms=1500
 
   // Max angle.

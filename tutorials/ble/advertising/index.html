@@ -4,7 +4,7 @@ main:
   adapter := ble.Adapter
   peripheral := adapter.peripheral
 
-  data := ble.AdvertisementData
+  data := ble.Advertisement
 
   peripheral.start-advertise data
   sleep --ms=10000
@@ -14,7 +14,7 @@ main:
   adapter := ble.Adapter
   peripheral := adapter.peripheral
 
-  data := ble.AdvertisementData
+  data := ble.Advertisement
       --name=&quot;Toit device&quot;
 
   peripheral.start-advertise data
@@ -27,9 +27,9 @@ main:
   adapter := ble.Adapter
   peripheral := adapter.peripheral
 
-  data := ble.AdvertisementData
+  data := ble.Advertisement
       --name=&quot;Toit device&quot;
-      --service-classes=[BATTERY-SERVICE]
+      --services=[BATTERY-SERVICE]
 
   peripheral.start-advertise data
   sleep --ms=10000
@@ -41,10 +41,10 @@ main:
   adapter := ble.Adapter
   peripheral := adapter.peripheral
 
-  data := ble.AdvertisementData
+  data := ble.Advertisement
       --name=&quot;Toit device&quot;
-      --service-classes=[BATTERY-SERVICE]
-      --manufacturer-data=#[0xFF, 0xFF, &#x27;t&#x27;, &#x27;o&#x27;, &#x27;i&#x27;, &#x27;t&#x27;]
+      --services=[BATTERY-SERVICE]
+      --manufacturer-specific=#[&#x27;t&#x27;, &#x27;o&#x27;, &#x27;i&#x27;, &#x27;t&#x27;]
 
   peripheral.start-advertise data
   sleep --ms=1000000

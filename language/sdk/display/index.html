@@ -6,18 +6,17 @@ which is also available as a package, called <code>ssd1306</code>. A color TFT d
 in the <a class="MuiTypography-root MuiTypography-body1 MuiLink-root MuiLink-underlineHover css-16lec7v" target="_blank" rel="noreferrer" href="https://github.com/toitware/toit-color-tft">toit-color-tft</a> and can be installed as the <code>color-tft</code> package.</p><h2 class="MuiTypography-root MuiTypography-h2 css-1mu5h4c" id="getting-the-display-driver-and-pixeldisplay-object" style="position:relative"><a class="table-of-contents-icon before" href="/language/sdk/display/#getting-the-display-driver-and-pixeldisplay-object" aria-label="getting the display driver and pixeldisplay object permalink"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting the display driver and PixelDisplay object</h2><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Both the <code>color-tft</code> and <code>ssd1306</code> packages have some helpful examples which you can see by cloning the
 github repos linked above. We will assume that you have a <code>get_display.toit</code> file in your project, which
 might look something like the following. Details will depend on your hardware configuration, in particular which
-pins and bus you are using to connect your display.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Example contents of <code>get_display.toit</code></p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import gpio
-import i2c
+pins and bus you are using to connect your display.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Example contents of <code>get_display.toit</code></p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import i2c
 import ssd1306 show *
 import pixel-display show *
 
 get-display -&gt; PixelDisplay:
-  scl := gpio.Pin 4
-  sda := gpio.Pin 5
+  scl := 4
+  sda := 5
   bus := i2c.Bus
-    --sda=sda
-    --scl=scl
-    --frequency=800_000
+      --sda=sda
+      --scl=scl
+      --frequency=800_000
 
   devices := bus.scan
   if not devices.contains Ssd1306.I2C-ADDRESS:
@@ -90,14 +89,14 @@ main:
   display/PixelDisplay ::= get-display
 
   sans-10 := Style
-    --font = SANS-10-BOLD
-    --color = BLACK
-    --align-right
+      --font = SANS-10-BOLD
+      --color = BLACK
+      --align-right
 
   sans-24 := Style
-    --font = SANS-24-FONT
-    --color = BLACK
-    --align-center
+      --font = SANS-24-FONT
+      --color = BLACK
+      --align-center
 
   [
       Label --style=sans-10 --x=40 --y=30 --text=&quot;Hello from&quot;,

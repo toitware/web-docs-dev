@@ -19,12 +19,10 @@ resistance, the lower the current, and the less power is wasted as heat.</p><img
 two resistors. If you have two resistors of the same value, the voltage
 between the two resistors will be half of the voltage between the
 end of the first resistor and the end of the second resistor. In our
-case the voltage between the two resistors should be 1.65V.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Let&#x27;s test this. Write (and Jaguar-<code>watch</code>) the following program:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import gpio
-import gpio.adc
+case the voltage between the two resistors should be 1.65V.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Let&#x27;s test this. Write (and Jaguar-<code>watch</code>) the following program:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import gpio.adc
 
 main:
-  pin := gpio.Pin 34
-  adc := adc.Adc pin
+  adc := adc.Adc 34
   256.repeat:
     print adc.get
     sleep --ms=500</pre></div><a class="css-9wnevo"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></a><div class="css-15lita4"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">This program should output 1.65V in a loop.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">You can shorten the output by using <code>print &quot;$(%1.3f adc.get)&quot;</code>. This

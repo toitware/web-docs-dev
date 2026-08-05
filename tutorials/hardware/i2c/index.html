@@ -21,12 +21,11 @@ for SCL, but these can be rerouted to other pins. In our example we will use
 pin 25 for SCL and pin 26 for SDA.</p><h2 class="MuiTypography-root MuiTypography-h2 css-1mu5h4c" id="code" style="position:relative"><a class="table-of-contents-icon before" href="/tutorials/hardware/i2c/#code" aria-label="code permalink"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code</h2><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Without knowing which devices are connected to the I2C bus, it is not possible
 to communicate with them. There is not standardized protocol to interface
 with I2C devices. However, it is possible to scan for devices on the bus,
-and to list their addresses.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Write an <code>i2c.toit</code> file and watch it with Jaguar:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import gpio
-import i2c
+and to list their addresses.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Write an <code>i2c.toit</code> file and watch it with Jaguar:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import i2c
 
 main:
-  scl := gpio.Pin 25
-  sda := gpio.Pin 26
+  scl := 25
+  sda := 26
   frequency := 100_000
 
   bus := i2c.Bus --sda=sda --scl=scl --frequency=frequency

@@ -72,16 +72,13 @@ necessary to do real-time work. Case in point, there is a
 great ESP32 peripheral &quot;RMT&quot; (Remote Control Transceiver) that
 can do the time measurement in hardware for us.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">The published <a class="MuiTypography-root MuiTypography-body1 MuiLink-root MuiLink-underlineHover css-16lec7v" target="_blank" rel="noreferrer" href="https://pkg.toit.io/package/github.com%2Flask%2Ftoit-hc-sr04@v2">hc_sr04</a> package uses the hardware and
 is thus more precise and uses less CPU.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">Install the package as usual with <code>jag pkg install</code>:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">jag pkg install github.com/lask/toit-hc-sr04@v2</pre></div><a class="css-9wnevo"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></a><div class="css-15lita4"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg></div></div><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">See the <a href="/tutorials/setup/packages">package tutorial</a> for more information
-about packages.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">We can now simplify the code:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import gpio
-import hc-sr04
+about packages.</p><p class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-yqlc5a">We can now simplify the code:</p><div class="css-11qzdws"><div class="css-1da5tgo"><pre class="vars css-3ogwq8" data-testid="code-container">import hc-sr04
 
 TRIGGER ::= 33
 ECHO ::= 32
 
 main:
-  trigger := gpio.Pin TRIGGER
-  echo := gpio.Pin ECHO
-  sensor := hc-sr04.Driver --echo=echo --trigger=trigger
+  sensor := hc-sr04.Driver --echo=ECHO --trigger=TRIGGER
 
   while true:
     distance := sensor.read-distance
